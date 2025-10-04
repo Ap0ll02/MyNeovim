@@ -1,12 +1,13 @@
-return {
-  "nvim-lualine/lualine.nvim",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
+return 
+{
+  'nvim-lualine/lualine.nvim',
+  event = 'ColorScheme',
   config = function()
-    require("lualine").setup({
+    require('lualine').setup({
       options = {
-        theme = "calvera-nvim", -- or "tokyonight", "dracula", "catppuccin", "auto"
-      },
+        --- @usage 'rose-pine' | 'rose-pine-alt'
+        theme = 'rose-pine'
+      }
     })
-  end,
+  end
 }
-

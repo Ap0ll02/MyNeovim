@@ -117,7 +117,10 @@ return {
       --  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
-      require('lspconfig').gdscript.setup(capabilities)
+      vim.lsp.config("gdscript", {
+          capabilities = capabilities,
+      })
+
 
       -- Enable the following language servers
       --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
@@ -147,6 +150,8 @@ return {
                 },
             },
             root_dir = require('lspconfig').util.root_pattern("*.csproj", "*.sln"),
+
+
             on_attach = function(client, bufnr)
                 vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = true })
             end,
@@ -155,7 +160,7 @@ return {
             cmd = {"zls"},
             settings = {
                 zls = {
-                    zig_exe_path = "/home/apollo/.zvm/0.15.1/zig",
+                    zig_exe_path = "/home/hyperion/.zvm/0.15.1/zig",
                 }
             }
         },
@@ -207,9 +212,10 @@ return {
         'omnisharp',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
-    require("lspconfig").emmet_ls.setup({
+    vim.lsp.config("emmet_ls", {
         filetypes = { "html", "css", "javascriptreact", "typescriptreact" },
     })
+
 
       require('mason-lspconfig').setup {
         ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
@@ -221,7 +227,7 @@ return {
             -- by the server configuration above. Useful when disabling
             -- certain features of an LSP (for example, turning off formatting for ts_ls)
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-            require('lspconfig')[server_name].setup(server)
+            vim.lsp.config(server_name, server)
           end,
         },
       }
