@@ -4,7 +4,7 @@ return {
   config = function()
     require("lualine").setup({
       options = {
-        theme = "calvera-nvim", -- or "tokyonight", "dracula", "catppuccin", "auto"
+        theme = "rose-pine", -- or "tokyonight", "dracula", "catppuccin", "auto"
       },
     })
   end,
