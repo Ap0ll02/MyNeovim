@@ -1,6 +1,5 @@
--- lua/plugins/lsp.lua
+-- plugins/lsp.lua
 return {
-  -- Mason + mason-lspconfig
   {
     "williamboman/mason.nvim",
     build = ":MasonUpdate",
@@ -24,5 +23,12 @@ return {
         ensure_installed = { "pylsp", "lua_ls", "rust_analyzer" },
       })
     end,
-  }
+  },
+  {
+    "neovim/nvim-lspconfig",
+    dependencies = { "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim", "hrsh7th/cmp-nvim-lsp" },
+    config = function()
+      require("lsp") -- this should just setup servers
+    end,
+  },
 }
