@@ -64,7 +64,5 @@ vim.api.nvim_create_user_command("W", function()
     vim.notify('Good Boy!')
 end, {})
 
-
-
 vim.keymap.set('n', '<leader>y', '"+y', { desc = 'Yank to system clipboard' })
 vim.keymap.set('v', '<leader>y', '"+y', { desc = 'Yank to system clipboard' })
