@@ -10,7 +10,7 @@ return {
     lazy = false, -- load immediately
     config = function()
       require("neo-tree").setup({
-        filesystem = { follow_current_file = true, use_libuv_file_watcher = true },
+        filesystem = { follow_current_file = {enabled = true}, use_libuv_file_watcher = true },
         window = { position = "left", width = 19 },
       })
 
