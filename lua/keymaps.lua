@@ -66,3 +66,7 @@ end, {})
 
 vim.keymap.set('n', '<leader>y', '"+y', { desc = 'Yank to system clipboard' })
 vim.keymap.set('v', '<leader>y', '"+y', { desc = 'Yank to system clipboard' })
+
+--- TOGGLE TERM ---
+-- ToggleTerm keymap
+vim.keymap.set("n", "<leader>T", ":ToggleTerm<CR>", { noremap = true, silent = true })
