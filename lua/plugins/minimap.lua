@@ -37,12 +37,18 @@ return {
   init = function()
     -- The following options are recommended when layout == "float"
     vim.opt.wrap = false
-    vim.opt.sidescrolloff = 36 -- Set a large value
+    vim.opt.sidescrolloff = 40 -- Set a large value
 
     --- Put your configuration here
     ---@type Neominimap.UserConfig
     vim.g.neominimap = {
       auto_enable = true,
+      layout = "float",
+      float = { 
+          minimap_width = 12,
+          window_border = vim.fn.has("nvim-0.11") == 2 and vim.opt.winborder:get() or "rounded",
+          margin = { right = 1, top = 0, bottom = 0 },
+      },
     }
   end,
 }
