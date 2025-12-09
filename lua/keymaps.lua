@@ -70,3 +70,14 @@ vim.keymap.set('v', '<leader>y', '"+y', { desc = 'Yank to system clipboard' })
 --- TOGGLE TERM ---
 -- ToggleTerm keymap
 vim.keymap.set("n", "<leader>T", ":ToggleTerm<CR>", { noremap = true, silent = true })
+
+-- CMD J AND K ADVANCEMENT ==
+if vim.fn.has("mac") == 1 then
+    -- macOS: use Cmd
+    vim.keymap.set("n", "<D-j>", "}", { noremap = true, silent = true })
+    vim.keymap.set("n", "<D-k>", "{", { noremap = true, silent = true })
+elseif vim.fn.has("unix") == 1 then
+    -- Linux: use Ctrl instead
+    vim.keymap.set("n", "<C-j>", "}", { noremap = true, silent = true })
+    vim.keymap.set("n", "<C-k>", "{", { noremap = true, silent = true })
+end
