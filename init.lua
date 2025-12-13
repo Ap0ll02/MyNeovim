@@ -13,15 +13,15 @@ if vim.g.neovide then
         return string.format("%x", math.floor(255 * vim.g.transparency or 0.8))
     end
     -- g:neovide_opacity should be 0 if you want to unify transparency of content and title bar.
-    vim.g.transparency = 0.98
-    vim.g.neovide_background_color = "#103138"
+    vim.g.neovide_opacity = 0.0
+    vim.g.transparency = 0.8
+    vim.g.neovide_background_color = "#0f1117" .. alpha()
+    
     vim.g.neovide_cursor_vfx_mode = "railgun"
     vim.g.neovide_remember_window_size = true
-    if vim.fn.has("mac") == 1 then
-        vim.g.neovide_window_blurred = true
-        vim.g.neovide_floating_blur_amount_x = 2.0
-        vim.g.neovide_floating_blur_amount_y = 2.0
-    end
+    vim.g.neovide_window_blurred = true
+    vim.g.neovide_floating_blur_amount_x = 2.0
+    vim.g.neovide_floating_blur_amount_y = 2.0
     vim.g.neovide_scale_factor = 1.0
 
     local function change_scale(delta)
